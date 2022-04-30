@@ -1,0 +1,180 @@
+//
+//  Usuarios.swift
+//  Prueba de Ingreso
+//
+//  Created by Arnaldo Alfredo on 2022-04-29.
+//
+
+import SwiftUI
+
+// Estructura de la API (Users)
+struct ModeloUsuario: Codable {
+    var id: Int
+    var name: String
+    var email: String
+    var phone: String
+}
+
+struct Usuarios: View {
+    
+    //*****************************************************************
+    // MARK: - Propiedades
+    //*****************************************************************
+    @State private var usuarios = [ModeloUsuario]()// donde se almacena la lista de usuarios ya en formato "usable" (obtenida desde la API o la BD local)
+    @State private var usuarioActual = ModeloUsuario(id: 0, name: "", email: "", phone: "")// usuario elegido
+    @State private var txtBusqueda = ""// el texto que el usuario ingrese en el campo de búsqueda
+    @State private var detalleAbierto = false// para saber si se abrió o no el detalle (ver publicaciones)
+    @State private var enCarga = false// para saber si se está cargando o no el contenido
+    // Para filtrar los usuarios por nombre, según la búsqueda:
+    private var filtroUsuario: [ModeloUsuario] {
+        if txtBusqueda.isEmpty {
+            return usuarios
+        } else {
+            return usuarios.filter {
+                $0.name.localizedCaseInsensitiveContains(txtBusqueda)
+            }
+        }
+    }
+    
+    //*****************************************************************
+    // MARK: - Cuerpo
+    //*****************************************************************
+    var body: some View {
+        NavigationView {
+            ZStack {
+                // ----------------------------------------------------
+                // Lista principal de usuarios:
+                // ----------------------------------------------------
+                // Creo la lista de usuarios con opción de búsqueda...
+                List {
+                    if !filtroUsuario.isEmpty {
+                        // ...y en cada ítem de la lista...
+                        ForEach(filtroUsuario, id: \.id){ u in
+                            // muestro su nombre, correo, número de teléfono...
+                            VStack(alignment: .leading) {
+                                Text(u.name)
+                                    .font(.headline)
+                                    .foregroundColor(.primary)
+                                
+                                Label(u.email, systemImage: "mail")
+                                    .font(.subheadline)
+                                    .foregroundColor(.secondary)
+                                    .padding(.horizontal, -4)
+                                
+                                Label(u.phone, systemImage: "phone")
+                                    .font(.subheadline)
+                                    .foregroundColor(.secondary)
+                                    .padding(.horizontal, -4)
+                                
+                                // ...y también un botón para visualizar
+                                // las publicaciones hechas por el usuario:
+                                HStack {// (para ordenar horizontalmente)
+                                    Spacer()// (para dividir en dos columnas y posicionar el botón a la derecha)
+                                    Button {
+                                        // Se pulsó el botón, actualizo el valor de las banderas:
+                                        usuarioActual = ModeloUsuario(id: u.id, name: u.name, email: u.email, phone: u.phone)
+                                        detalleAbierto = true
+                                    } label: {
+                                        Text("Ver Publicaciones →")
+                                            .textCase(.uppercase)
+                                            .font(.caption.bold())
+                                    }
+                                    // aplico estilo al botón:
+                                    .buttonStyle(BorderlessButtonStyle())
+                                    .padding(.vertical)
+                                }
+                            }
+                        }
+                        // aplico estilo a la "tarjeta" o ítem de la lista:
+                        .padding([.top, .horizontal])
+                        .background(Color(.tertiarySystemBackground))
+                        .cornerRadius(6)
+                        .shadow(color: .black.opacity(0.12), radius: 0, x: 0, y: 2)
+                        .listRowSeparator(.hidden)
+                        .listRowBackground(EmptyView())
+                        .background(
+                            NavigationLink(destination: Publicaciones(usuarioActual: $usuarioActual), isActive: $detalleAbierto) { EmptyView() }
+                                .hidden()
+                        )
+                    } else if !enCarga {
+                        // si el filtro no corresponde con ningún usuario debe aparecer el mensaje “List is empty”
+                        Text("List is empty")
+                            .foregroundColor(.secondary)
+                            .frame(maxWidth: .infinity, alignment: .center)
+                    }
+                    
+                }
+                .navigationTitle("Usuarios")
+                .listStyle(GroupedListStyle())
+                .searchable(text: $txtBusqueda, prompt: "Buscar usuario")
+                .onAppear() {
+                    enCarga = true
+                }
+                .task {
+                    await cargarDatos()
+                }
+                // ----------------------------------------------------
+                // "Rueda" de progreso
+                // ----------------------------------------------------
+                // Siempre que se esté cargando el contenido, se va a mostrar un indicador:
+                if enCarga {
+                    ProgressView()
+                        .progressViewStyle(CircularProgressViewStyle(tint: .secondary))
+                }
+                
+            }
+        }
+    }
+    
+    //*****************************************************************
+    // MARK: - Funciones principales
+    //*****************************************************************
+    // Cargar contenido (desde la API o desde la base de datos local)
+    private func cargarDatos() async {
+        let urlStr = "https://jsonplaceholder.typicode.com/users"
+        // Verifico si los datos de los usuarios se encuentran almacenados en la BD local
+        usuarios = BD().traerUsuarios();
+        // En el caso de que haya registro en la base de datos local:
+        if !usuarios.isEmpty {
+            enCarga = false
+            print("Hay usuarios en la base de datos local, listarlos desde ahí...")
+            return
+        } else {
+            // Si no, pues voy a intentar cargar desde la API en el servidor
+            guard let url = URL(string: urlStr) else {
+                enCarga = false
+                print("URL no válida")
+                return
+            }
+            do {
+                print("Cargando datos desde: \(urlStr)")
+                // Cargo los datos desde la API
+                let (datoJson, _) = try await URLSession.shared.data(from: url)
+                // Decodifico el contenido...
+                let decoder = JSONDecoder()
+                if let json = try? decoder.decode([ModeloUsuario].self, from: datoJson) {
+                    // ...y guardo en la base de datos local, los datos de cada usuario
+                    for dato in json {
+                        BD().agregarUsuario(valorNombre: dato.name, valorCorreo: dato.email, valorTelefono: dato.phone)
+                    }
+                    // Además, guardo en la varioable "usuarios" para usar ya en esta pantalla:
+                    usuarios = json
+                    enCarga = false
+                    print("Datos cargados con éxito desde la API")
+                }
+                
+            } catch {
+                enCarga = false
+                print("Error al cargar los datos \(error.localizedDescription)")
+            }
+        }
+    }
+    
+}
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        Usuarios()
+            .previewInterfaceOrientation(.portrait)
+    }
+}

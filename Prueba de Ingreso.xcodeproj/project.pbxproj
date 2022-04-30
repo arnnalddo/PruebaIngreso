@@ -7,18 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		329022F2281C54DB007799EB /* Prueba_de_IngresoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329022F1281C54DB007799EB /* Prueba_de_IngresoApp.swift */; };
-		329022F4281C54DB007799EB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329022F3281C54DB007799EB /* ContentView.swift */; };
+		329022F2281C54DB007799EB /* Aplicacion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329022F1281C54DB007799EB /* Aplicacion.swift */; };
+		329022F4281C54DB007799EB /* Usuarios.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329022F3281C54DB007799EB /* Usuarios.swift */; };
 		329022F6281C54E0007799EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 329022F5281C54E0007799EB /* Assets.xcassets */; };
 		329022F9281C54E0007799EB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 329022F8281C54E0007799EB /* Preview Assets.xcassets */; };
+		32902300281C6526007799EB /* Publicaciones.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329022FF281C6526007799EB /* Publicaciones.swift */; };
+		32953BB5281C824E00DE1EC5 /* BD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32953BB4281C824E00DE1EC5 /* BD.swift */; };
+		3D43DC6B96F060FFA5D9AACC /* Pods_Prueba_de_Ingreso.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82A6CC5F2085AAF4B64D50DD /* Pods_Prueba_de_Ingreso.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		00C26F020CFC8285AC8412B1 /* Pods-Prueba de Ingreso.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Prueba de Ingreso.release.xcconfig"; path = "Target Support Files/Pods-Prueba de Ingreso/Pods-Prueba de Ingreso.release.xcconfig"; sourceTree = "<group>"; };
 		329022EE281C54DB007799EB /* Prueba de Ingreso.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Prueba de Ingreso.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		329022F1281C54DB007799EB /* Prueba_de_IngresoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prueba_de_IngresoApp.swift; sourceTree = "<group>"; };
-		329022F3281C54DB007799EB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		329022F1281C54DB007799EB /* Aplicacion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aplicacion.swift; sourceTree = "<group>"; };
+		329022F3281C54DB007799EB /* Usuarios.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Usuarios.swift; sourceTree = "<group>"; };
 		329022F5281C54E0007799EB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		329022F8281C54E0007799EB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		329022FF281C6526007799EB /* Publicaciones.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Publicaciones.swift; sourceTree = "<group>"; };
+		32953BB4281C824E00DE1EC5 /* BD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BD.swift; sourceTree = "<group>"; };
+		32953BB6281CAC4E00DE1EC5 /* Prueba-de-Ingreso-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Prueba-de-Ingreso-Info.plist"; sourceTree = SOURCE_ROOT; };
+		82A6CC5F2085AAF4B64D50DD /* Pods_Prueba_de_Ingreso.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Prueba_de_Ingreso.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B675773D2416D67886F0EF95 /* Pods-Prueba de Ingreso.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Prueba de Ingreso.debug.xcconfig"; path = "Target Support Files/Pods-Prueba de Ingreso/Pods-Prueba de Ingreso.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D43DC6B96F060FFA5D9AACC /* Pods_Prueba_de_Ingreso.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -37,6 +47,8 @@
 			children = (
 				329022F0281C54DB007799EB /* Prueba de Ingreso */,
 				329022EF281C54DB007799EB /* Products */,
+				82DA200F64EDEC44961DCAF8 /* Pods */,
+				C234D12C4F65A909C6873AFC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -51,10 +63,13 @@
 		329022F0281C54DB007799EB /* Prueba de Ingreso */ = {
 			isa = PBXGroup;
 			children = (
-				329022F1281C54DB007799EB /* Prueba_de_IngresoApp.swift */,
-				329022F3281C54DB007799EB /* ContentView.swift */,
+				32953BB6281CAC4E00DE1EC5 /* Prueba-de-Ingreso-Info.plist */,
+				329022F1281C54DB007799EB /* Aplicacion.swift */,
+				329022F3281C54DB007799EB /* Usuarios.swift */,
 				329022F5281C54E0007799EB /* Assets.xcassets */,
 				329022F7281C54E0007799EB /* Preview Content */,
+				329022FF281C6526007799EB /* Publicaciones.swift */,
+				32953BB4281C824E00DE1EC5 /* BD.swift */,
 			);
 			path = "Prueba de Ingreso";
 			sourceTree = "<group>";
@@ -67,6 +82,23 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		82DA200F64EDEC44961DCAF8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B675773D2416D67886F0EF95 /* Pods-Prueba de Ingreso.debug.xcconfig */,
+				00C26F020CFC8285AC8412B1 /* Pods-Prueba de Ingreso.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		C234D12C4F65A909C6873AFC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				82A6CC5F2085AAF4B64D50DD /* Pods_Prueba_de_Ingreso.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +106,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 329022FC281C54E0007799EB /* Build configuration list for PBXNativeTarget "Prueba de Ingreso" */;
 			buildPhases = (
+				F9688BF496FC8E3A1FE9FC07 /* [CP] Check Pods Manifest.lock */,
 				329022EA281C54DB007799EB /* Sources */,
 				329022EB281C54DB007799EB /* Frameworks */,
 				329022EC281C54DB007799EB /* Resources */,
+				5EE8E260EAA9A77D81184DB4 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -132,13 +166,57 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		5EE8E260EAA9A77D81184DB4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Prueba de Ingreso/Pods-Prueba de Ingreso-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Prueba de Ingreso/Pods-Prueba de Ingreso-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Prueba de Ingreso/Pods-Prueba de Ingreso-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F9688BF496FC8E3A1FE9FC07 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Prueba de Ingreso-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		329022EA281C54DB007799EB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				329022F4281C54DB007799EB /* ContentView.swift in Sources */,
-				329022F2281C54DB007799EB /* Prueba_de_IngresoApp.swift in Sources */,
+				329022F4281C54DB007799EB /* Usuarios.swift in Sources */,
+				32902300281C6526007799EB /* Publicaciones.swift in Sources */,
+				329022F2281C54DB007799EB /* Aplicacion.swift in Sources */,
+				32953BB5281C824E00DE1EC5 /* BD.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -195,7 +273,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -249,7 +327,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -261,6 +339,7 @@
 		};
 		329022FD281C54E0007799EB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B675773D2416D67886F0EF95 /* Pods-Prueba de Ingreso.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -270,9 +349,11 @@
 				DEVELOPMENT_TEAM = 2SBDV6N656;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Prueba-de-Ingreso-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -290,6 +371,7 @@
 		};
 		329022FE281C54E0007799EB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 00C26F020CFC8285AC8412B1 /* Pods-Prueba de Ingreso.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -299,9 +381,11 @@
 				DEVELOPMENT_TEAM = 2SBDV6N656;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Prueba-de-Ingreso-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
