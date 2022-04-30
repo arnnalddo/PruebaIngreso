@@ -14,6 +14,10 @@ struct ModeloPublicacion: Codable {
     var body: String
 }
 
+//*****************************************************************
+// Esta es la estructura de la Vista en la que se muestran
+// las publicaciones de un usuario específico.
+//*****************************************************************
 struct Publicaciones: View {
     
     //*****************************************************************

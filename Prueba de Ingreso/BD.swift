@@ -4,6 +4,12 @@
 //
 //  Created by Arnaldo Alfredo on 2022-04-29.
 //
+//*****************************************************************
+// Esta clase, servirá para realizar la conexión con la base
+// de datos local, haciendo uso de la librería SQLite.
+// Además, permite registrar y obtener los datos necesarios
+// de los usuarios.
+//*****************************************************************
 
 import Foundation
 import SQLite

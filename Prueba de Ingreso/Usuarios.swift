@@ -15,6 +15,10 @@ struct ModeloUsuario: Codable {
     var phone: String
 }
 
+//*****************************************************************
+// Esta es la estructura principal, donde se muestra
+// la lista de los usuarios.
+//*****************************************************************
 struct Usuarios: View {
     
     //*****************************************************************
