@@ -13,6 +13,7 @@ struct Aplicacion: App {
         WindowGroup {
             Usuarios()
                 .accentColor(Color(.systemGreen))// Color(red: 0.11, green: 0.37, blue: 0.13, alpha: 1.0) (el verde de Material Design)
+                .navigationViewStyle(.stack)
         }
     }
 }

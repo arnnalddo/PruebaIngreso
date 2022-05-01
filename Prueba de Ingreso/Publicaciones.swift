@@ -14,10 +14,10 @@ struct ModeloPublicacion: Codable {
     var body: String
 }
 
-//*****************************************************************
+//*********************************************************************
 // Esta es la estructura de la Vista en la que se muestran
 // las publicaciones de un usuario específico.
-//*****************************************************************
+//*********************************************************************
 struct Publicaciones: View {
     
     //*****************************************************************
@@ -51,7 +51,6 @@ struct Publicaciones: View {
                         .padding(.horizontal, -4)
                     HStack {
                         Spacer()
-                        Spacer()
                     }
                 }
                 .padding([.top, .bottom, .horizontal])
@@ -73,7 +72,6 @@ struct Publicaciones: View {
                             .font(.body)
                             .foregroundColor(.secondary)
                         HStack {
-                            Spacer()
                             Spacer()
                         }
                     }
